@@ -1,4 +1,4 @@
-body {
+/* body {
   font-family: sans-serif;
 }
 
@@ -19,3 +19,15 @@ form div {
   margin: 1em;
   display: inline-block;
 }
+.main-header {
+  width: 100vw;
+  height: 30vh;
+  background: pink;
+} */
+/*
+.box {
+  height: 200px !important;
+  width: 200px;
+  transform-origin: 50% 50%;
+  background: pink !important;
+} */

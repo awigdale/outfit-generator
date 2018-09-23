@@ -2,15 +2,24 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {auth} from '../store'
+import {ItemDiv, ClothingWrapper} from './stylizedComponents'
+import styled from 'styled-components'
 
 /**
  * COMPONENT
  */
+
+const LoginComponent = styled.div`
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #1b2121;
+  width: 30vw;
+  position: relative;
+`
+
 const AuthForm = props => {
   const {name, displayName, handleSubmit, error} = props
-
   return (
-    <div>
+    <LoginComponent>
       <form onSubmit={handleSubmit} name={name}>
         <div>
           <label htmlFor="email">
@@ -29,8 +38,7 @@ const AuthForm = props => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
-      <a href="/auth/google">{displayName} with Google</a>
-    </div>
+    </LoginComponent>
   )
 }
 

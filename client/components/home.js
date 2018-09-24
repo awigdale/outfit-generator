@@ -16,8 +16,8 @@ const DressMeButton = styled(Button)`
   position: relative;
   font-weight: 700;
   font-size: 60px;
-  left: 450px;
-  top: -350px;
+  left: 400px;
+  top: -300px;
   color: red;
   border: 2px solid #1b2121;
 `
@@ -27,8 +27,8 @@ const ResetButton = styled(Button)`
   border: 2px solid #1b2121;
   position: relative;
   display: inline-block;
-  top: -384px;
-  left: 200px;
+  top: -335px;
+  left: 220px;
 `
 
 const Wrapper = styled.div`

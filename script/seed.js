@@ -104,10 +104,10 @@ async function seed() {
     BottomsMood.create({bottomId: 1, moodId: 3}),
     BottomsMood.create({bottomId: 1, moodId: 4}),
     BottomsMood.create({bottomId: 2, moodId: 2}),
-    BottomsMood.create({bottomId: 3, moodId: 2}),
     BottomsMood.create({bottomId: 2, moodId: 4}),
     BottomsMood.create({bottomId: 2, moodId: 3}),
     BottomsMood.create({bottomId: 2, moodId: 6}),
+    BottomsMood.create({bottomId: 3, moodId: 2}),
     BottomsMood.create({bottomId: 3, moodId: 5}),
     BottomsMood.create({bottomId: 3, moodId: 6}),
     BottomsMood.create({bottomId: 4, moodId: 5}),
@@ -147,7 +147,7 @@ async function seed() {
   console.log(`seeded ${tops.length} tops`)
   console.log(`seed ${shoes.length} shoes`)
   console.log(`seeded ${moods.length} moods`)
-  // console.log(`seeded ${associations.length} associations`)
+  console.log(`seeded ${associations.length} associations`)
   console.log(`seeded successfully`)
 }
 

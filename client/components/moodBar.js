@@ -52,7 +52,7 @@ const Mood = styled.h1`
   letter-spacing: -12px;
   color: #1b2121;
   position: relative;
-  top: -250px;
+  top: -200px;
 `
 
 class MoodBar extends Component {

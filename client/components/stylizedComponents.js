@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import posed from 'react-pose'
 
 export const MainWrapper = styled.div`
   width: 100vw;
@@ -38,3 +39,30 @@ export const ClothingWrapper = styled.div`
 export const ItemDiv = styled.div`
   width: 40vw;
 `
+export const Img = styled.img`
+  height: 32vh;
+  position: static;
+  overflow: hidden;
+`
+export const Box = posed(Img)({
+  idle: {scale: 1},
+  hovered: {scale: 1.75}
+})
+
+export const PosedImg = posed(Img)({
+  zoomedIn: {
+    position: 'fixed',
+    top: '200px',
+    left: '700px',
+    bottom: 0,
+    right: 0,
+    scale: 2.2,
+    flip: true
+  },
+  zoomedOut: {
+    position: 'static',
+    height: '32vh',
+    scale: 1.0,
+    flip: true
+  }
+})

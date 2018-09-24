@@ -1,25 +1,11 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchBottoms} from '../store/bottoms'
-import {ItemDiv} from './stylizedComponents'
-import posed from 'react-pose'
-import styled from '../../node_modules/styled-components'
-
-const Img = styled.img`
-  height: 32vh;
-  position: relative;
-
-  overflow: hidden;
-`
-
-const Box = posed(Img)({
-  idle: {scale: 1},
-  hovered: {scale: 1.5}
-})
+import {ItemDiv, PosedImg} from './stylizedComponents'
 
 class Bottoms extends Component {
   state = {
-    hovering: true,
+    isZoomed: false,
     selectedBottom: {}
   }
   async componentDidMount() {
@@ -33,15 +19,24 @@ class Bottoms extends Component {
     this.setState({selectedBottom: bottom})
   }
 
+  zoomIn() {
+    this.setState({isZoomed: true})
+  }
+
+  zoomOut() {
+    this.setState({isZoomed: false})
+  }
+
   render() {
     return (
       <ItemDiv>
         {this.state.selectedBottom.id && (
-          <Box
+          <PosedImg
             src={`${this.state.selectedBottom.imgUrl}`}
-            pose={this.state.hovering ? 'idle' : 'hovered'}
-            onMouseEnter={() => this.setState({hovering: false})}
-            onMouseLeave={() => this.setState({hovering: true})}
+            pose={this.state.isZoomed ? 'zoomedIn' : 'zoomedOut'}
+            onClick={() =>
+              this.state.isZoomed ? this.zoomOut() : this.zoomIn()
+            }
           />
         )}
       </ItemDiv>

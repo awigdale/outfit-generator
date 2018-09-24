@@ -1,22 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTops} from '../store/tops'
-import posed from 'react-pose'
-import styled from 'styled-components'
-import {ItemDiv} from './stylizedComponents'
-
-const Img = styled.img`
-  height: 32vh;
-  position: relative;
-`
-
-const Box = posed(Img)({
-  idle: {scale: 1},
-  hovered: {scale: 1.5}
-})
+import {ItemDiv, PosedImg} from './stylizedComponents'
 
 class Tops extends Component {
-  state = {hovering: true, selectedTop: {}}
+  state = {isZoomed: false, selectedTop: {}}
   async componentDidMount() {
     await this.props.fetchTops(this.props.selectedMood.id)
     this.selectTop()
@@ -26,15 +14,23 @@ class Tops extends Component {
     const top = this.props.tops[index]
     this.setState({selectedTop: top})
   }
+  zoomIn() {
+    this.setState({isZoomed: true})
+  }
+
+  zoomOut() {
+    this.setState({isZoomed: false})
+  }
   render() {
     return (
       <ItemDiv>
         {this.state.selectedTop.id && (
-          <Box
+          <PosedImg
             src={`${this.state.selectedTop.imgUrl}`}
-            pose={this.state.hovering ? 'idle' : 'hovered'}
-            onMouseEnter={() => this.setState({hovering: false})}
-            onMouseLeave={() => this.setState({hovering: true})}
+            pose={this.state.isZoomed ? 'zoomedIn' : 'zoomedOut'}
+            onClick={() =>
+              this.state.isZoomed ? this.zoomOut() : this.zoomIn()
+            }
           />
         )}
       </ItemDiv>
